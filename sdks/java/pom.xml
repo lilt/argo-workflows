@@ -4,7 +4,7 @@
     <groupId>io.argoproj.workflow</groupId>
     <artifactId>argo-client-java</artifactId>
     <name>argo-client-java</name>
-    <version>0.0.0-VERSION</version>
+    <version>v3.3.10</version>
     <build>
         <plugins>
             <plugin>
