@@ -1,33 +1,33 @@
 # Java SDK
 
-## Client Library
+## Using the Client Library
 
-This provides model and APIs for accessing the Argo Server API rather.
+In gradle:
 
-If you wish to access the Kubernetes APIs, you can use the models to do this. You'll need to write your own code to
-speak to the API.
+```
+implementation group: 'io.argoproj.workflow', name: 'argo-client-java', version: 'v3.3.10'
+```
 
-⚠️ The Java SDK is published to Github packages, not Maven Central. You must update your Maven settings.xml
-file: [how to do that](https://github.com/argoproj/argo-workflows/packages).
-
-Recommended:
+In maven:
 
 ```xml
 <dependency>
     <groupId>io.argoproj.workflow</groupId>
     <artifactId>argo-client-java</artifactId>
-    <version>3.3.0</version>
+    <version>v3.3.10</version>
 </dependency>
 ```
 
-The very latest version:
+## Building and deploying for Nexus
 
-```xml
-<dependency>
-    <groupId>io.argoproj.workflow</groupId>
-    <artifactId>argo-client-java</artifactId>
-    <version>0.0.0-SNAPSHOT</version>
-</dependency>
+You will need your `~/.m2/settings.xml` file set up with a nexus credential
+that has write access.
+
+```bash
+cd sdks/java
+make generate
+cd client
+mvn deploy -Dmaven.test.skip=true -Psonatype_deploy -DskipStaging=true
 ```
 
 ## Docs
